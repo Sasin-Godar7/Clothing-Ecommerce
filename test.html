@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastra</title>
+
+    <link rel="shortcut icon" href="image/logo.png" type="image/png">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            width:100%;
+        }
+
+        .section-p1{
+            padding:40px 80px;
+        }
+
+        button.normal{
+            font-size:14px;
+            font-weight:600;
+            padding:15px 30px;
+            color:#000;
+            background:#fff;
+            border-radius:4px;
+            cursor:pointer;
+            border:none;
+            outline:none;
+            transition:0.3s;
+        }
+
+        /* HEADER */
+
+        #header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:20px 80px;
+            background:#E3E6F3;
+            box-shadow:0 5px 15px rgba(0,0,0,0.06);
+            position:sticky;
+            top:0;
+            left:0;
+            z-index:999;
+        }
+
+        .logo{
+            width:160px;
+        }
+
+        #navbar{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:25px;
+        }
+
+        #navbar li{
+            list-style:none;
+        }
+
+        #navbar li a{
+            text-decoration:none;
+            font-size:16px;
+            font-weight:600;
+            color:#1a1a1a;
+            transition:0.3s ease;
+        }
+
+        #navbar li a:hover,
+        #navbar li a.active{
+            color:#088178;
+        }
+
+        /* PRODUCT DETAILS */
+
+        #prodetails{
+            display:flex;
+            margin-top:20px;
+            gap:50px;
+        }
+
+        .single-pro-image{
+            width:40%;
+        }
+
+        #MainImage{
+            border-radius:10px;
+        }
+
+        .small-img-group{
+            display:flex;
+            justify-content:space-between;
+            margin-top:10px;
+        }
+
+        .small-img-col{
+            flex-basis:24%;
+            cursor:pointer;
+        }
+
+        .small-img-col img{
+            border-radius:8px;
+        }
+
+        .single-pro-detail{
+            width:50%;
+            padding-top:30px;
+        }
+
+        .single-pro-detail h4{
+            padding:20px 0;
+        }
+
+        .single-pro-detail h2{
+            font-size:28px;
+        }
+
+        .single-pro-detail select{
+            display:block;
+            padding:8px 12px;
+            margin-bottom:15px;
+        }
+
+        .single-pro-detail input{
+            width:60px;
+            height:45px;
+            padding-left:10px;
+            font-size:16px;
+            margin-right:10px;
+        }
+
+        .single-pro-detail button{
+            background:#088178;
+            color:#fff;
+        }
+
+        .single-pro-detail span{
+            line-height:25px;
+            color:#555;
+        }
+
+        /* PRODUCTS */
+
+        #product1{
+            text-align:center;
+        }
+
+        .pro-container{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            padding-top:20px;
+            gap:20px;
+        }
+
+        .pro{
+            width:23%;
+            min-width:250px;
+            padding:10px 12px;
+            border:1px solid #cce7d0;
+            border-radius:20px;
+            cursor:pointer;
+            box-shadow:20px 20px 30px rgba(0,0,0,0.02);
+            transition:0.2s ease;
+            position:relative;
+        }
+
+        .pro:hover{
+            box-shadow:20px 20px 30px rgba(0,0,0,0.08);
+        }
+
+        .pro img{
+            width:100%;
+            border-radius:20px;
+        }
+
+        .des{
+            text-align:start;
+            padding:10px 0;
+        }
+
+        .des span{
+            color:#606063;
+            font-size:12px;
+        }
+
+        .des h5{
+            padding-top:7px;
+            color:#1a1a1a;
+            font-size:14px;
+        }
+
+        .star{
+            color:gold;
+            font-size:12px;
+            padding:6px 0;
+        }
+
+        .des h4{
+            padding-top:7px;
+            font-size:15px;
+            font-weight:700;
+            color:#088178;
+        }
+
+        .cart{
+            width:40px;
+            height:40px;
+            line-height:40px;
+            border-radius:50px;
+            background:#e8f6ea;
+            color:#088178;
+            border:1px solid #cce7d0;
+            position:absolute;
+            bottom:20px;
+            right:10px;
+            text-align:center;
+        }
+
+        /* NEWSLETTER */
+
+        #newsletter{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            background:#041e42;
+            color:#fff;
+        }
+
+        #newsletter h3{
+            font-size:24px;
+        }
+
+        #newsletter p{
+            font-size:14px;
+            margin-top:10px;
+        }
+
+        #newsletter span{
+            color:#ffbd27;
+        }
+
+        #newsletter .form{
+            display:flex;
+            width:40%;
+        }
+
+        #newsletter input{
+            height:3.125rem;
+            padding:0 1.25em;
+            font-size:14px;
+            width:100%;
+            border:none;
+            outline:none;
+        }
+
+        #newsletter button{
+            background:#088178;
+            color:#fff;
+            white-space:nowrap;
+        }
+
+        /* FOOTER */
+
+        footer{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:space-between;
+        }
+
+        footer .col{
+            display:flex;
+            flex-direction:column;
+            margin-bottom:20px;
+        }
+
+        footer h4{
+            font-size:14px;
+            padding-bottom:20px;
+        }
+
+        footer p,
+        footer a{
+            font-size:13px;
+            margin:0 0 8px 0;
+            text-decoration:none;
+            color:#222;
+        }
+
+        footer .follow{
+            margin-top:20px;
+        }
+
+        footer .follow i{
+            color:#465b52;
+            padding-right:4px;
+            cursor:pointer;
+        }
+
+        footer .install .row img{
+            border:1px solid #088178;
+            border-radius:6px;
+        }
+
+        footer .install img{
+            margin:10px 0 15px 0;
+        }
+
+        .copyright{
+            width:100%;
+            text-align:center;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width:992px){
+
+            #header{
+                padding:20px 40px;
+            }
+
+            #prodetails{
+                flex-direction:column;
+            }
+
+            .single-pro-image{
+                width:100%;
+            }
+
+            .single-pro-detail{
+                width:100%;
+            }
+
+            .pro-container{
+                justify-content:center;
+            }
+        }
+
+        @media (max-width:768px){
+
+            .section-p1{
+                padding:40px 20px;
+            }
+
+            #header{
+                flex-direction:column;
+                padding:20px;
+                gap:15px;
+            }
+
+            #navbar{
+                flex-wrap:wrap;
+                gap:15px;
+            }
+
+            #prodetails{
+                flex-direction:column;
+            }
+
+            .single-pro-image{
+                width:100%;
+            }
+
+            .single-pro-detail{
+                width:100%;
+                padding-top:20px;
+            }
+
+            .single-pro-detail input,
+            .single-pro-detail select,
+            .single-pro-detail button{
+                width:100%;
+                margin-bottom:15px;
+            }
+
+            .small-img-group{
+                gap:10px;
+            }
+
+            .pro{
+                width:100%;
+                max-width:320px;
+            }
+
+            #newsletter{
+                text-align:center;
+                gap:20px;
+            }
+
+            #newsletter .form{
+                width:100%;
+                flex-direction:column;
+                gap:10px;
+            }
+
+            #newsletter button{
+                width:100%;
+            }
+
+            footer{
+                flex-direction:column;
+                gap:20px;
+            }
+        }
+
+        @media (max-width:480px){
+
+            .logo{
+                width:130px;
+            }
+
+            #navbar li a{
+                font-size:14px;
+            }
+
+            .single-pro-detail h2{
+                font-size:24px;
+            }
+
+            footer p,
+            footer a{
+                font-size:12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section id="header">
+
+        <div class="logodiv">
+            <a href="#">
+                <img src="image/navlogo.png" class="logo" alt="logo">
+            </a>
+        </div>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="prodetails" class="section-p1">
+
+        <div class="single-pro-image">
+
+            <img src="image/products/f1.jpg" alt="image1" width="100%" id="MainImage">
+
+            <div class="small-img-group">
+
+                <div class="small-img-col">
+                    <img src="image/products/f1.jpg" width="100%" class="small-img">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="image/products/f2.jpg" width="100%" class="small-img">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="image/products/f3.jpg" width="100%" class="small-img">
+                </div>
+
+                <div class="small-img-col">
+                    <img src="image/products/f4.jpg" width="100%" class="small-img">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="single-pro-detail">
+
+            <h6>Home / Shirt</h6>
+
+            <h4>Men's Fashion Shirt</h4>
+
+            <h2>$122.90</h2>
+
+            <select>
+                <option>Select Size</option>
+                <option>XL</option>
+                <option>XXL</option>
+                <option>Small</option>
+                <option>Large</option>
+                <option>Medium</option>
+            </select>
+
+            <input type="number" value="1">
+
+            <button class="normal">Add To Cart</button>
+
+            <h4>Product Details</h4>
+
+            <span>
+                A high-quality shirt is characterized by meticulous attention to detail,
+                balancing structural integrity with aesthetic appeal.
+            </span>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        var MainImage = document.getElementById('MainImage');
+
+        var SmallImage = document.getElementsByClassName('small-img');
+
+        SmallImage[0].onclick = function () {
+            MainImage.src = SmallImage[0].src;
+        }
+
+        SmallImage[1].onclick = function () {
+            MainImage.src = SmallImage[1].src;
+        }
+
+        SmallImage[2].onclick = function () {
+            MainImage.src = SmallImage[2].src;
+        }
+
+        SmallImage[3].onclick = function () {
+            MainImage.src = SmallImage[3].src;
+        }
+
+    </script>
+
+</body>
+
+</html>
